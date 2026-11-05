@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0b3d2a" />
+    <title>Pagamento Pix | Mult Mix Shop</title>
+    <style>
+
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      html,
+      body {
+        margin: 0;
+      }
+
+      body {
+        background: #0b3d2a;
+        color: #fff;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          Arial,
+          sans-serif;
+        line-height: 1.4;
+        min-height: 100vh;
+        padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0);
+      }
+
+      main {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 24px 16px 48px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+        margin: 0 0 6px;
+      }
+
+      h2 {
+        font-size: 1.05rem;
+        margin: 28px 0 4px;
+      }
+
+      p {
+        margin: 0;
+        color: #c9e3d6;
+      }
+
+      .key {
+        border: 1px solid #2f7a5a;
+        border-radius: 14px;
+        padding: 16px;
+        margin: 20px 0 12px;
+      }
+
+      .key b {
+        display: block;
+        font-size: 1.15rem;
+        margin-top: 4px;
+        letter-spacing: 0.5px;
+        word-break: break-all;
+        color: #fff;
+      }
+
+      button {
+        font: inherit;
+        cursor: pointer;
+        background: #fff;
+        color: #0b3d2a;
+        border: 2px solid #fff;
+        border-radius: 12px;
+        font-weight: 700;
+      }
+
+      .copy {
+        width: 100%;
+        padding: 16px;
+        font-size: 1.1rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .grid button {
+        padding: 15px 8px;
+        font-size: 1rem;
+      }
+
+      button:active {
+        background: #d9efe3;
+      }
+
+      button:focus-visible {
+        outline: 3px solid #7dffc0;
+        outline-offset: 2px;
+      }
+
+      .qr {
+        background: #fff;
+        border-radius: 14px;
+        padding: 8px;
+        max-width: 260px;
+        margin: 20px auto 16px;
+      }
+
+      .qr img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .code {
+        width: 100%;
+        margin-top: 12px;
+        padding: 10px;
+        font:
+          0.75rem/1.3 ui-monospace,
+          Menlo,
+          Consolas,
+          monospace;
+        color: #c9e3d6;
+        background: transparent;
+        border: 1px solid #2f7a5a;
+        border-radius: 12px;
+        resize: none;
+        word-break: break-all;
+      }
+
+      .how {
+        margin-top: 24px;
+        font-size: 0.92rem;
+      }
+
+      #t {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        max-width: 448px;
+        margin: 0 auto;
+        background: #fff;
+        color: #0b3d2a;
+        padding: 14px 16px;
+        border-radius: 12px;
+        font-weight: 700;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+
+      #t.on {
+        opacity: 1;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <main>
+
+      <h1>Pagamento via Pix</h1>
+
+      <p>Copie o código ou escaneie o QR Code. Antes de confirmar, confira se o recebedor é Gesio Cesar de Avila.</p>
+
+      <div class="key" aria-label="Dados do recebedor Pix"><span>Recebedor</span><b>Gesio Cesar de Avila</b><span>Chave Pix</span><b>11.320.103/0001-55</b></div>
+
+      <div class="qr" aria-label="QR Code Pix"><img src="data:image/png;base64,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" alt="QR Code Pix de Gesio Cesar de Avila" /></div>
+
+      <button class="copy" id="copy">Copiar Pix copia e cola</button>
+
+      <textarea
+        class="code"
+        readonly
+        rows="4"
+        onclick="this.select()"
+        aria-label="Código Pix copia e cola"
+      >00020126600014br.gov.bcb.pix0114113201030001550220Gesio Cesar de Avila5204000053039865802BR5917GESIO CESAR AVILA6010UBERLANDIA62160512Multimixshop6304D567 CENTER LTDA6010UBERLANDIA6226052242ixRqUnL4IMJaJb8acLju6304F1BC</textarea>
+
+      <h2>Abrir meu banco</h2>
+      <p>Toque no seu banco. O código é copiado e o app tenta abrir.</p>
+      <div class="grid" id="grid"></div>
+
+      <p class="how">
+        No app, escolha Pix → Pix Copia e Cola e cole o código. Confirme o nome
+        do recebedor antes de concluir. Se o app não abrir, abra-o manualmente;
+        o código já estará copiado.
+      </p>
+    </main>
+
+    <div id="t" role="status" aria-live="polite"></div>
+
+    <script>
+      var KEY =
+        "00020126600014br.gov.bcb.pix0114113201030001550220Gesio Cesar de Avila5204000053039865802BR5917GESIO CESAR AVILA6010UBERLANDIA62160512Multimixshop6304D567 CENTER LTDA6010UBERLANDIA6226052242ixRqUnL4IMJaJb8acLju6304F1BC";
+
+      // [nome, pacote Android, esquema iOS, fallback da Play Store]
+      var BANKS = [
+        ["Inter", "br.com.intermedium", "bancointer://", "https://play.google.com/store/apps/details?id=br.com.intermedium"],
+        ["PicPay", "com.picpay", "picpay://", "https://play.google.com/store/apps/details?id=com.picpay"]
+      ];
+
+      // Detecção de plataforma
+      var ua = navigator.userAgent || "";
+      var IS_ANDROID = /Android/i.test(ua);
+
+      // iPadOS novo se identifica como "Macintosh", por isso o teste de touch
+      var IS_IOS =
+        /iPhone|iPad|iPod/i.test(ua) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+      // Mensagem na tela
+      var tt;
+
+      function toast(m) {
+        var t = document.getElementById("t");
+        t.textContent = m;
+        t.className = "on";
+        clearTimeout(tt);
+
+        tt = setTimeout(function () {
+          t.className = "";
+        }, 4000);
+      }
+
+      // Copiar o código Pix
+      function copySync() {
+        try {
+          var a = document.createElement("textarea");
+          a.value = KEY;
+          a.setAttribute("readonly", "");
+          a.style.cssText =
+            "position:fixed;top:0;left:0;opacity:0;font-size:16px";
+
+          document.body.appendChild(a);
+          a.focus();
+          a.select();
+          a.setSelectionRange(0, a.value.length);
+
+          var r = document.execCommand("copy");
+          document.body.removeChild(a);
+
+          if (r) return true;
+        } catch (e) {}
+
+        return false;
+      }
+
+      function copyKey() {
+        var ok = copySync();
+
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(KEY);
+            ok = true;
+          }
+        } catch (e) {}
+
+        return ok;
+      }
+
+      document.getElementById("copy").onclick = function () {
+        toast(
+          copyKey()
+            ? "Código copiado! Cole em Pix Copia e Cola no app do seu banco."
+            : "Não copiou. Toque no código abaixo e copie."
+        );
+      };
+
+      // Abrir o app do banco
+      function openBank(b) {
+        var name = b[0];
+        var pkg = b[1];
+        var scheme = b[2];
+
+        if (IS_ANDROID) {
+          // Tenta abrir o aplicativo; se não estiver instalado, usa a Play Store.
+          location.href =
+            "intent://open#Intent" +
+            ";scheme=" +
+            scheme.replace("://", "") +
+            ";package=" +
+            pkg +
+            ";S.browser_fallback_url=" +
+            encodeURIComponent(b[3]) +
+            ";end";
+        } else if (IS_IOS) {
+          // iOS: o esquema funciona se o aplicativo estiver instalado.
+          location.href = scheme;
+        } else {
+          toast("Abra o app do " + name + " no celular e cole a chave em Pix.");
+          return false;
+        }
+
+        return true;
+      }
+
+      var g = document.getElementById("grid");
+
+      BANKS.forEach(function (b) {
+        var el = document.createElement("button");
+        el.textContent = b[0];
+
+        el.onclick = function () {
+          var ok = copyKey();
+
+          if (IS_ANDROID || IS_IOS) {
+            toast(
+              ok
+                ? "Código copiado! Abrindo " + b[0] + "…"
+                : "Abrindo " + b[0] + "… copie o código abaixo."
+            );
+          }
+
+          if (!openBank(b)) return;
+
+          // Se a página continua visível após 1,8 segundos, o app não abriu.
+          var opened = false;
+
+          function onHide() {
+            if (document.hidden) opened = true;
+          }
+
+          document.addEventListener("visibilitychange", onHide);
+          window.addEventListener("pagehide", function () {
+            opened = true;
+          });
+
+          setTimeout(function () {
+            document.removeEventListener("visibilitychange", onHide);
+
+            if (opened || document.hidden) return;
+
+            toast(
+              ok
+                ? "Não abriu? Abra o " +
+                    b[0] +
+                    " e use Pix Copia e Cola. O código já está copiado."
+                : "Não abriu? Abra o " +
+                    b[0] +
+                    " e cole o código em Pix Copia e Cola."
+            );
+          }, 1800);
+        };
+
+        g.appendChild(el);
+      });
+    </script>
+  </body>
+</html>
